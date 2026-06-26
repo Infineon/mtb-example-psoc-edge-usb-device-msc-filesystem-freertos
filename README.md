@@ -3,10 +3,11 @@
 This example demonstrates the usage of Segger's emUSB-device middleware to set up the USB block of PSOC&trade; Edge MCU as a Mass Storage Class (MSC) device and run the ([FatFs](http://elm-chan.org/fsw/ff/00index_e.html)) file system through an external memory (microSD). This example is based on FreeRTOS.
 
 This code example has a three project structure: CM33 secure, CM33 non-secure, and CM55 projects. All three projects are programmed to the external QSPI flash and executed in Execute in Place (XIP) mode. Extended boot launches the CM33 secure project from a fixed location in the external flash, which then configures the protection settings and launches the CM33 non-secure application. Additionally, CM33 non-secure application enables CM55 CPU and launches the CM55 application.
+> **Note:** On the KIT_PSE84_HMI, all three projects are programmed to the external OSPI flash instead of QSPI.
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-psoc-edge-usb-device-msc-filesystem-freertos)
 
-[Provide feedback on this code example.](https://yourvoice.infineon.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzk1MTQiLCJTcGVjIE51bWJlciI6IjAwMi0zOTUxNCIsIkRvYyBUaXRsZSI6IlBTT0MmdHJhZGU7IEVkZ2UgTUNVOiBlbVVTQi1kZXZpY2UgRmF0RnMgTVNDIGZpbGUgc3lzdGVtIiwicmlkIjoic25laGEuc2FyYXZhbmFrdW1hckBpbmZpbmVvbi5jb20iLCJEb2MgdmVyc2lvbiI6IjIuMS4wIiwiRG9jIExhbmd1YWdlIjoiRW5nbGlzaCIsIkRvYyBEaXZpc2lvbiI6Ik1DRCIsIkRvYyBCVSI6IklDVyIsIkRvYyBGYW1pbHkiOiJQU09DIn0=)
+[Provide feedback on this code example.](https://yourvoice.infineon.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzk1MTQiLCJTcGVjIE51bWJlciI6IjAwMi0zOTUxNCIsIkRvYyBUaXRsZSI6IlBTT0MmdHJhZGU7IEVkZ2UgTUNVOiBlbVVTQi1kZXZpY2UgRmF0RnMgTVNDIGZpbGUgc3lzdGVtIiwicmlkIjoic25laGEuc2FyYXZhbmFrdW1hckBpbmZpbmVvbi5jb20iLCJEb2MgdmVyc2lvbiI6IjIuMi4wIiwiRG9jIExhbmd1YWdlIjoiRW5nbGlzaCIsIkRvYyBEaXZpc2lvbiI6Ik1DRCIsIkRvYyBCVSI6IklDVyIsIkRvYyBGYW1pbHkiOiJQU09DIn0=)
 
 See the [Design and implementation](docs/design_and_implementation.md) for the functional description of this code example.
 
@@ -31,6 +32,7 @@ See the [Design and implementation](docs/design_and_implementation.md) for the f
 
 - [PSOC&trade; Edge E84 Evaluation Kit](https://www.infineon.com/KIT_PSE84_EVAL) (`KIT_PSE84_EVAL_EPC2`) – Default value of `TARGET`
 - [PSOC&trade; Edge E84 Evaluation Kit](https://www.infineon.com/KIT_PSE84_EVAL) (`KIT_PSE84_EVAL_EPC4`)
+- [PSOC&trade; Edge E84 HMI Kit](https://www.infineon.com/KIT_PSE84_HMI) (`KIT_PSE84_HMI`)
 
 
 ## Hardware setup
@@ -88,7 +90,7 @@ See [Using the code example](docs/using_the_code_example.md) for instructions on
 8. To access the SD card connected through your MCU kit's USB, open the File Explorer in your PC. A new removable drive will appear, representing the SD card
 
 9. Open *readme.txt* from the removable drive using a text editor. Modify or update the text and Save the file back to the USB drive (the removable drive associated with your MCU kit)<br>
-   
+
     > **Note:** Your operating system (OS) might briefly show a "writing" or "syncing" message
 
 10. Press the User button 1 (**USER BTN1**) to read the updated data from the *readme.txt* file from the SD card. Verify the output on the serial terminal as shown in the following figure
@@ -126,6 +128,7 @@ Document title: *CE239514* – *PSOC&trade; Edge MCU: emUSB-Device FatFs MSC fil
  1.x.0   | New code example <br> Early access release
  2.0.0   | GitHub release
  2.1.0   | Updated design files to fix ModusToolbox&trade; v3.7 build warnings
+ 2.2.0   | Added support for KIT_PSE84_HMI
 <br>
 
 
